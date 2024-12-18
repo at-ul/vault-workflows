@@ -2,8 +2,6 @@ name: Deployment
 on: workflow_dispatch
 env:
   VAULT_CLUSTER_URL: http://18.206.203.244:8200/
-  TEST_STRING: "5712"
-  USER_ID: ""
 jobs:
   connect-list:
     runs-on: ubuntu-latest
@@ -18,5 +16,4 @@ jobs:
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         echo "$USER_ID" >> id.txt
-         cat id.txt
+         (($USER_ID=="127401")); echo $?
