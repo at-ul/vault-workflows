@@ -11,10 +11,9 @@ jobs:
         uses: hashicorp/vault-action@v2
         with:
           url: "${{ env.VAULT_CLUSTER_URL }}"
-          token: ${{ secrets.VAULT_TOKEN }}
+          token: "${{ secrets.VAULT_TOKEN }}"
           secrets: |
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         echo "User ID: $USER_ID /-5432179"
-         env $USER_ID;
+         echo "User ID: $USER_ID"
