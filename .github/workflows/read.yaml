@@ -3,6 +3,7 @@ on: workflow_dispatch
 env:
   VAULT_CLUSTER_URL: http://18.206.203.244:8200/
   TEST_STRING: "5712"
+  USER_ID: ""
 jobs:
   connect-list:
     runs-on: ubuntu-latest
