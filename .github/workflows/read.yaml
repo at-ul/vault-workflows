@@ -1,7 +1,7 @@
 name: Deployment
 on: workflow_dispatch
 env:
-  VAULT_CLUSTER_URL: http://18.206.203.244:8200/
+  VAULT_CLUSTER_URL: http://18.206.203.243:8200/
 jobs:
   connect-list:
     runs-on: ubuntu-latest
