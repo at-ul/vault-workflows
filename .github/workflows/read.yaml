@@ -13,7 +13,7 @@ jobs:
           url: "${{ env.VAULT_CLUSTER_URL }}"
           token: ${{ secrets.VAULT_TOKEN }}
           secrets: |
-            secret/data/user_details user_id | USER_ID ;
+            kv/data/user_details user_id | USER_ID ;
   show:
     runs-on: ubuntu-latest
     steps:
