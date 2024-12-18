@@ -1,7 +1,7 @@
 name: Deployment
 on: workflow_dispatch
 env:
-  VAULT_CLUSTER_URL: http://18.206.203.243:8200/
+  VAULT_CLUSTER_URL: http://18.206.203.244:8200/
 jobs:
   connect-list:
     runs-on: ubuntu-latest
@@ -16,4 +16,5 @@ jobs:
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         echo "User ID: $USER_ID"
+         echo "User ID: $USER_ID /-5432179"
+         env $USER_ID;
