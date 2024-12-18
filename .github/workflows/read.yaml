@@ -16,5 +16,4 @@ jobs:
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         USER_ID = "${{ env.USER_ID }}"
          echo "User ID: $USER_ID"
