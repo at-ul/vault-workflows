@@ -1,0 +1,22 @@
+name: Deployment
+on: workflow_dispatch
+env:
+  VAULT_CLUSTER_URL: http://18.206.203.244:8200/
+jobs:
+  connect-list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: hashicorp/vault-action@v2
+        with:
+          url: "${{ env.VAULT_CLUSTER_URL }}"
+          token: ${{ secrets.VAULT_TOKEN }}
+          secrets: |
+            /v1/kv/data/user_details user_id | USER_ID ;
+  show:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Info
+        run: |
+          echo "USER ID: $USER_ID"
