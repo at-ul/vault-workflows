@@ -18,4 +18,5 @@ jobs:
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         echo "User ID: $USER_ID-$TEST_STRING"
+         echo "$USER_ID" >> id.txt
+         cat id.txt
