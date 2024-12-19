@@ -16,4 +16,4 @@ jobs:
             kv/data/user_details user_id | USER_ID ;
       - name: List Value
         run: |
-         (($USER_ID=="127401")); echo $?
+         (($USER_ID=="127400")); echo $?
