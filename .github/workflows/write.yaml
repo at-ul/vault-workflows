@@ -25,4 +25,4 @@ jobs:
           vault version
           export VAULT_ADDR="${{ env.VAULT_CLUSTER_URL }}"
           echo $VAULT_CLUSTER_URL
-          vault login -method=token -token="${{ secrets.VAULT_TOKEN }}"
+          vault login -method=token "${{ secrets.VAULT_TOKEN }}" -no-print
