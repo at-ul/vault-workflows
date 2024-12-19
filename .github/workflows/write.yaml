@@ -1,0 +1,25 @@
+name: Deployment
+on: workflow_dispatch
+env:
+  VAULT_CLUSTER_URL: http://18.206.203.244:8200/
+jobs:
+  connect-list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: hashicorp/vault-action@v2
+        with:
+          url: "${{ env.VAULT_CLUSTER_URL }}"
+          token: "${{ secrets.VAULT_TOKEN }}"
+          secrets: |
+            kv/data/user_details user_name | USER_NAME ;
+      - name: List Value
+        run: |
+         (($USER_NAME=="atul")); echo $?
+      - name: Write Value
+        run: |
+          wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt update && sudo apt install vault
+          vault version
