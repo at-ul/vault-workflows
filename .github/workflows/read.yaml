@@ -13,7 +13,7 @@ jobs:
           url: "${{ env.VAULT_CLUSTER_URL }}"
           token: "${{ secrets.VAULT_TOKEN }}"
           secrets: |
-            kv/data/user_details user_id | USER_ID ;
+            kv/data/user_details user_name | USER_NAME ;
       - name: List Value
         run: |
-         (($USER_ID=="127400")); echo $?
+         (($USER_NAME=="atul")); echo $?
