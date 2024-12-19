@@ -24,4 +24,5 @@ jobs:
           sudo apt update && sudo apt install vault
           vault version
           export VAULT_ADDR="${{ env.VAULT_CLUSTER_URL }}"
+          echo $VAULT_CLUSTER_URL
           vault login -method=token -token="${{ secrets.VAULT_TOKEN }}"
