@@ -1,5 +1,10 @@
 name: val
 on: 
+  workflow_call:
+    inputs:
+      v1:
+        type: string
+        default: k1
   workflow_dispatch:
     inputs:
       v1:
@@ -11,3 +16,4 @@ jobs:
    steps:
      - name: echo
        run: echo "Hello!"
+
