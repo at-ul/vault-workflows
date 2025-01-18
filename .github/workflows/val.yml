@@ -1,0 +1,13 @@
+name: val
+on: 
+  workflow_dispatch:
+    inputs:
+      v1:
+        type: string
+        default: k1
+jobs:
+  val:
+   runs-on: ubuntu_latest
+   steps:
+     - name: echo
+       run: echo "Hello!"
