@@ -12,7 +12,7 @@ on:
         default: k1
 jobs:
   val:
-   runs-on: ubuntu_latest
+   runs-on: ubuntu-latest
    steps:
      - name: echo
        run: echo "Hello!"
