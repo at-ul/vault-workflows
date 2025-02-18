@@ -1,0 +1,7 @@
+name: MT
+on: workflow_dispatch
+jobs:
+  execute-update-secret-workflow:
+    needs: check-token-count
+    uses: at-ul/reusable-workflows/.github/workflows/at1.yaml@main
+    secrets: inherit
