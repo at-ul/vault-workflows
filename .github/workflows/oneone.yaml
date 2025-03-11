@@ -16,4 +16,4 @@ jobs:
      - name: echo
        run: |
          export TOKEN=$(curl -sSL -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL")
-         echo TOKEN
+         echo $TOKEN
